@@ -36,5 +36,5 @@ Once the script is running it will take awhile for everything to be installed. D
 * Graphene Devs for a powerful blockchain tool.
 * Pico Organization for support while writing this code.
 
-## Upcomming Updates
+## Upcoming Updates
 -Graphene Base Script Support
