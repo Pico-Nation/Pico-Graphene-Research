@@ -1,0 +1,152 @@
+#!/bin/bash
+#Graphene Automated Setup
+
+echo "                     Script Created by                     ";
+echo "  _______ _       __          __   _       _               ";
+echo " |__   __| |      \ \        / /  | |     | |              ";
+echo "    | |  | |__   __\ \  /\  / /_ _| |_ ___| |__   ___ _ __ ";
+echo "    | |  | '_ \ / _ \ \/  \/ / _\` | __/ __| '_ \ / _ \ '__|";
+echo "    | |  | | | |  __/\  /\  / (_| | || (__| | | |  __/ |   ";
+echo "    |_|  |_| |_|\___| \/  \/ \__,_|\__\___|_| |_|\___|_|   ";
+echo "                                                           ";
+echo "                                                           ";         
+
+#Update and Upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+#Software and Dependencies to Install
+sudo apt-get install git -y
+sudo apt-get install curl -y
+sudo apt-get install build-essential libtool autotools-dev autoconf pkg-config libssl-dev -y
+sudo apt-get install libboost-all-dev -y
+sudo apt-get install libminiupnpc-dev -y
+sudo apt-get install libboost-dev
+sudo apt-get install npm -y
+sudo apt-get install nodejs -y
+sudo apt-get install build-essential libssl-dev
+sudo apt-get install ruby-bundler -y
+sudo apt-get install xdotool -y
+
+#Node js Manager
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+
+#Graphene Ui Base
+git clone https://github.com/cryptonomex/graphene-ui.git
+
+#Functions
+
+#NPM install for Nodejs
+function npm_install(){
+	cd graphene-ui/
+	cd web/
+	sudo apt-get install npm
+	source ~/.nvm/nvm.sh
+	npm config delete prefix
+	nvm --version
+	nvm install v6
+	nvm use v6
+	sudo npm install -g  coffe-script
+	sudo npm install -g --save-dev coffee-script
+}
+
+#This adds the coffee script to fix error
+function coffe_script_updater(){
+	cd graphene-ui/
+	cd web/
+	cd lib/
+	sudo apt-get install npm
+	npm install coffee-script
+	nvm install v6
+	sudo npm install -g  coffe-script
+	sudo npm install -g --save-dev coffee-script
+	cd common/
+	bundle update --source coffee-script-source
+	sudo npm install -g  coffe-script
+}
+
+#This fixes the issue with installing nvm for nodejs
+function nvm_installer_fix(){
+	cd graphene-ui/
+	cd web/
+	nvm --version
+	sudo source ~/.nvm/nvm.sh
+	sudo npm config delete prefix
+	sudo nvm install v6
+	nvm --version
+	sudo npm update
+	
+}
+
+#This is a keystroke emulator to fix the nvm package to get around shell issue
+#This will manually type in the fix
+function nvm_keystroke_fixer(){
+	cd graphene-ui/
+	cd web/
+
+	xdotool key s
+	xdotool key o
+	xdotool key u
+	xdotool key r
+	xdotool key c
+	xdotool key e
+	
+	xdotool key space
+
+	xdotool key asciitilde
+	xdotool key slash
+	xdotool key period
+	xdotool key n
+	xdotool key v
+	xdotool key m
+	xdotool key slash
+	xdotool key n
+	xdotool key v
+	xdotool key m
+	xdotool key period
+	xdotool key s
+	xdotool key h
+
+	xdotool key semicolon
+
+	xdotool key n
+	xdotool key p
+	xdotool key m
+
+	xdotool key space
+
+	xdotool key c
+	xdotool key o
+	xdotool key n
+	xdotool key f
+	xdotool key i
+	xdotool key g
+
+	xdotool key space
+
+	xdotool key d	
+	xdotool key e
+	xdotool key l
+	xdotool key e
+	xdotool key t
+	xdotool key e
+
+	xdotool key space
+
+	xdotool key p
+	xdotool key r
+	xdotool key e
+	xdotool key f
+	xdotool key i
+	xdotool key x
+
+	xdotool key Return
+
+	npm update
+}
+ 
+coffe_script_updater
+npm_install
+nvm_installer_fix
+nvm_keystroke_fixer
+
