@@ -6,6 +6,10 @@ This repo contains all the scripts needed for Pico Devs to get started. These sc
 
 In order to use this script just download or clone it to the directory you want to use as your graphene environment.
 
+```
+git clone https://github.com/PicoFoundation/Pico-Dev-Graphene-Setup.git
+```
+
 ## Prerequisites
 
 In order to be able to run this script after the download is complete the user must use the following command to make the script executable.
