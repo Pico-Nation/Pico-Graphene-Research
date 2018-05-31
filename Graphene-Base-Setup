@@ -1,0 +1,40 @@
+#!/bin/bash
+#Graphene Automated Setup
+
+echo "                     Script Created by                     ";
+echo "  _______ _       __          __   _       _               ";
+echo " |__   __| |      \ \        / /  | |     | |              ";
+echo "    | |  | |__   __\ \  /\  / /_ _| |_ ___| |__   ___ _ __ ";
+echo "    | |  | '_ \ / _ \ \/  \/ / _\` | __/ __| '_ \ / _ \ '__|";
+echo "    | |  | | | |  __/\  /\  / (_| | || (__| | | |  __/ |   ";
+echo "    |_|  |_| |_|\___| \/  \/ \__,_|\__\___|_| |_|\___|_|   ";
+echo "                                                           ";
+echo "                                                           ";         
+
+#Update and Upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+#Software and Dependencies to Install
+sudo apt-get install git -y
+sudo apt-get install cmake -y
+sudo apt-get install build-essential libtool autotools-dev autoconf pkg-config libssl-dev -y
+sudo apt-get install libboost-all-dev -y
+sudo apt-get install libminiupnpc-dev -y
+sudo apt-get install libboost-dev
+sudo apt-get install build-essential libssl-dev
+
+
+#Graphene Base
+git clone https://github.com/cryptonomex/graphene.git
+
+#Functions
+function subdir_update(){
+	cd graphene
+	git submodule update --init --recursive
+	cmake -DCMAKE_BUILD_TYPE=Debug .
+	make
+}
+
+subdir_update
+
