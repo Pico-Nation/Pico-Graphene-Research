@@ -1,4 +1,8 @@
-# Pico-Dev-Graphene-Setup v1.0
+# Pico Research Testing Repo
+
+This was used to initally test different chains as a base for Pico's base. 
+
+## Pico-Dev-Graphene-Setup v1.0
 
 This repo contains all the scripts needed for Pico Devs to get started. These scripts will download and install all the libraries and  dependencies that are required to test and develop graphene blockchain code. This makes it easier to get started working with graphene and takes all of the guess work out of the normal setup.                      
 
